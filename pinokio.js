@@ -8,6 +8,7 @@ module.exports = {
     let running = {
       install: info.running("install.js"),
       start: info.running("start.js"),
+      start_debug: info.running("start_debug.js"),
       update: info.running("update.js"),
       reset: info.running("reset.js")
     }
@@ -19,8 +20,9 @@ module.exports = {
         href: "install.js"
       }]
     } else if (installed) {
-      if (running.start) {
-        let local = info.local("start.js")
+      if (running.start || running.start_debug) {
+        let script = running.start_debug ? "start_debug.js" : "start.js"
+        let local = info.local(script)
         if (local && local.url) {
           return [{
             default: true,
@@ -29,15 +31,15 @@ module.exports = {
             href: local.url
           }, {
             icon: "fa-solid fa-terminal",
-            text: "Terminal",
-            href: "start.js"
+            text: running.start_debug ? "Debug Mode Terminal" : "Terminal",
+            href: script
           }]
         }
         return [{
           default: true,
           icon: "fa-solid fa-terminal",
-          text: "Terminal",
-          href: "start.js"
+          text: running.start_debug ? "Debug Mode Terminal" : "Terminal",
+          href: script
         }]
       } else if (running.update) {
         return [{
@@ -59,6 +61,10 @@ module.exports = {
         icon: "fa-solid fa-power-off",
         text: "Start",
         href: "start.js"
+      }, {
+        icon: "fa-solid fa-bug",
+        text: "Start Debug Mode",
+        href: "start_debug.js"
       }, {
         icon: "fa-solid fa-rotate",
         text: "Update",
