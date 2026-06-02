@@ -30,7 +30,7 @@ module.exports = {
       params: {
         path: "app",
         message: [
-          "git -c core.protectNTFS=false archive HEAD --format=tar -- . \":(exclude,glob)**/*:socket\" | tar -xf -"
+          "git -c core.protectNTFS=false archive HEAD --format=tar -- . \":(exclude,glob)**/*:socket\" \":(exclude)utils/templates/etc/apache2\" | tar -xf -"
         ]
       }
     },
