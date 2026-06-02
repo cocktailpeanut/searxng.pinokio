@@ -1,0 +1,33 @@
+use_default_settings:
+  engines:
+    remove:
+      - ahmia
+      - torch
+      - brave
+      - brave.images
+      - brave.videos
+      - brave.news
+      - braveapi
+
+general:
+  debug: false
+  instance_name: "SearXNG"
+
+search:
+  autocomplete: ""
+  formats:
+    - html
+    - json
+    - csv
+    - rss
+
+server:
+  bind_address: "127.0.0.1"
+  secret_key: "pinokio-local-searxng"
+  limiter: false
+  public_instance: false
+  image_proxy: true
+  method: "GET"
+
+valkey:
+  url: false

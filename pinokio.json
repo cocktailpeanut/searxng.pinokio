@@ -1,0 +1,12 @@
+{
+  "title": "SearXNG",
+  "description": "A privacy-respecting metasearch engine that runs locally.",
+  "icon": "icon.svg",
+  "links": [{
+    "title": "Project",
+    "value": "https://github.com/searxng/searxng"
+  }, {
+    "title": "Documentation",
+    "value": "https://docs.searxng.org/"
+  }]
+}
