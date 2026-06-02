@@ -18,7 +18,7 @@ module.exports = {
           "python ../start_searxng.py"
         ],
         on: [{
-          event: "/(http:\\/\\/[0-9.:]+)/",
+          event: "/(http:\\/\\/\\S+)/",
           done: true
         }]
       }
